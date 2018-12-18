@@ -25,7 +25,7 @@ function prepare_image() {
 				;;
 	esac
 	wget --quiet -O - get.pharo.org/$ARCH_PATH$PHARO | bash
-	wget --quiet -O - get.pharo.org/$ARCH_PATH$signedVM$PHARO | bash
+	wget --quiet -O - get.pharo.org/${ARCH_PATH}signed$VM$PHARO | bash
 
 	./pharo Pharo.image save PharoLauncher --delete-old
 	./pharo PharoLauncher.image --version > version.txt
