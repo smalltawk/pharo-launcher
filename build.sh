@@ -50,7 +50,7 @@ function package_user_version() {
         # Avoid to have PL core dir set to the slave location
 	./pharo PharoLauncher.image eval --save "PhLTemplateSources classVarNamed: 'LauncherCoreDir' put: nil"
 	# Faster the startup of the launcher image
-	./pharo PharoLauncher.image eval --save ""
+	# ./pharo PharoLauncher.image eval --save ""
 
 	# Create the platform-specific archives
 	mkdir One
