@@ -40,8 +40,6 @@ function run_tests() {
 
 function package_developer_version() {
 	./pharo PharoLauncher.image eval --save "PhLDirectoryBasedImageRepository location"
-        # Avoid to have PL core dir set to the slave location
-	./pharo PharoLauncher.image eval --save "PhLTemplateSources classVarNamed: 'LauncherCoreDir' put: nil"
 	./pharo PharoLauncher.image eval '(MBConfigurationRoot current configurationInfoFor: ConfigurationOfPharoLauncher) version versionNumber' > launcher-version.txt
 	set_env
 	zip -9r PharoLauncher-developer-$VERSION_NUMBER.zip PharoLauncher.image PharoLauncher.changes launcher-version.txt
@@ -49,6 +47,8 @@ function package_developer_version() {
 
 function package_user_version() {
 	./pharo PharoLauncher.image eval --save "PhLDeploymentScript doAll"
+        # Avoid to have PL core dir set to the slave location
+	./pharo PharoLauncher.image eval --save "PhLTemplateSources classVarNamed: 'LauncherCoreDir' put: nil"
 	# Faster the startup of the launcher image
 	./pharo PharoLauncher.image eval --save ""
 
