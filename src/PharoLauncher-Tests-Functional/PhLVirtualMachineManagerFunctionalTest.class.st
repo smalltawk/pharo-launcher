@@ -3,7 +3,7 @@ A PhLVirtualMachineManagerTest is a test class for testing the behavior of PhLVi
 "
 Class {
 	#name : #PhLVirtualMachineManagerFunctionalTest,
-	#superclass : #PhLVirtualMachineManagerTest,
+	#superclass : #AnObsoletePhLVirtualMachineManagerTest,
 	#instVars : [
 		'vmStoreBackup',
 		'tempVmStoreFolder'

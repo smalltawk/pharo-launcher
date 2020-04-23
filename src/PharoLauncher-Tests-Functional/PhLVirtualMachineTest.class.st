@@ -1,8 +1,6 @@
 Class {
 	#name : #PhLVirtualMachineTest,
 	#superclass : #TestCase,
-	#traits : 'TPhLVirtualMachineTestUtil',
-	#classTraits : 'TPhLVirtualMachineTestUtil classTrait',
 	#category : #'PharoLauncher-Tests-Functional'
 }
 

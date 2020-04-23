@@ -9,23 +9,8 @@ Class {
 	#category : #'PharoLauncher-Tests-Commands'
 }
 
-{ #category : #running }
-PhLLaunchImageFromDiskCommandTest >> setUp [
-	super setUp.
-	presenter := PhLTestImagesPresenter new.
-	imageDir := FileLocator temp / 'pharo-launcher-tests-launch-image-from-disk-command' , UUIDGenerator next asString.
-	imageDir ensureCreateDirectory
-]
-
-{ #category : #running }
-PhLLaunchImageFromDiskCommandTest >> tearDown [
-	imageDir ensureDeleteAll.
-	presenter delete.
-	process ifNotNil: [ process terminate ].
-]
-
 { #category : #tests }
-PhLLaunchImageFromDiskCommandTest >> testCanLaunchImageFromDisk [
+PhLLaunchImageFromDiskCommandTest >> disabledtestCanLaunchImageFromDisk [
 	| command image |
 	command := PhLLaunchImageFromDiskCommand new.
 	command context: presenter.
@@ -42,4 +27,19 @@ PhLLaunchImageFromDiskCommandTest >> testCanLaunchImageFromDisk [
 	2 seconds wait. "let time to the image to be opened by the VM"
 	
 	self assert: process isRunning.
+]
+
+{ #category : #running }
+PhLLaunchImageFromDiskCommandTest >> setUp [
+	super setUp.
+	presenter := PhLTestImagesPresenter new.
+	imageDir := FileLocator temp / 'pharo-launcher-tests-launch-image-from-disk-command' , UUIDGenerator next asString.
+	imageDir ensureCreateDirectory
+]
+
+{ #category : #running }
+PhLLaunchImageFromDiskCommandTest >> tearDown [
+	imageDir ensureDeleteAll.
+	presenter delete.
+	process ifNotNil: [ process terminate ].
 ]
