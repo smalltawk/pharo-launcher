@@ -40,5 +40,5 @@ BaselineOfPharoLauncher >> baseline: spec [
 			package: #'PharoLauncher-Tests-Functional' with: [
 				spec requires: #(#'PharoLauncher-Core' #'PharoLauncher-Tests-Download'). ].
 		spec 
-			group: 'Default' with: #(#'PharoLauncher-Download' #'PharoLauncher-Core' #'PharoLauncher-Spec2' #'PharoLauncher-Tests-Commands'). ].
+			group: 'Default' with: #(#'PharoLauncher-Core' #'PharoLauncher-Spec2' #'PharoLauncher-Tests-Commands'). ].
 ]
