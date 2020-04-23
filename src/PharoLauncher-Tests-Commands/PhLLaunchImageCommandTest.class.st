@@ -50,6 +50,8 @@ PhLLaunchImageCommandTest >> testCanLaunchImage [
 	2 seconds wait. "let time to the image to be opened by the VM"
 	self traceCr: 'stop waiting ' , DateAndTime now asString.
 	self traceCr: 'process running? ', process isRunning asString.
+	self traceCr: 'process isSuccess? ', process isSuccess asString.
+	self traceCr: 'process stederr: ', process stderrString.
 	self assert: process isRunning.
 	self traceCr: 'end of test'.
 ]
