@@ -43,6 +43,8 @@ PhLLaunchImageCommandTest >> testCanLaunchImage [
 
 	self traceCr: 'will run the process'.
 	process := command execute.
+	self traceCr: 'pid: ', (process instVarNamed: 'process') pid asString.
+	self traceCr: 'process running? ', process isRunning asString.
 	"self traceCr: process pid asString."
 	self traceCr: 'start waiting ' , DateAndTime now asString.
 	2 seconds wait. "let time to the image to be opened by the VM"
