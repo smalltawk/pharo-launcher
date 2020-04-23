@@ -23,7 +23,7 @@ PhLLaunchImageCommandTest >> tearDown [
 	self traceCr: 'in tearDown'.
 	self traceCr: 'process: ' , process asString.
 	self traceCr: 'process is Running? ' , process isRunning asString.
-	process ifNotNil: [ process terminate ].
+	process ifNotNil: [ process isRunning ifTrue: [ process terminate ] ].
 	self traceCr: 'process terminated'
 ]
 
