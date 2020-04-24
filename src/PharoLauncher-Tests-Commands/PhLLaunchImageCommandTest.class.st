@@ -40,6 +40,7 @@ PhLLaunchImageCommandTest >> testCanLaunchImage [
 			SystemVersion current major asString putOn: stream.
 			SystemVersion current minor asString putOn: stream ].
 	presenter selection: image.
+	image defaultLaunchConfiguration vmArguments: #('--headless'). "be able to run test without X session"
 
 	self traceCr: 'will run the process'.
 	process := command execute.
