@@ -32,6 +32,9 @@ function prepare_image() {
 }
 
 function run_tests() {
+	# Need Xvfb to run pharo in ui mode (launch image command tests)
+	Xvfb :1 -screen 0 800x600x16 &
+	export DISPLAY=:1.0
 	./pharo PharoLauncher.image test --junit-xml-output "PharoLauncher.*"	
 }
 
