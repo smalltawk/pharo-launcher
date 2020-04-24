@@ -40,7 +40,10 @@ PhLLaunchImageCommandTest >> testCanLaunchImage [
 			SystemVersion current major asString putOn: stream.
 			SystemVersion current minor asString putOn: stream ].
 	presenter selection: image.
-	image defaultLaunchConfiguration vmArguments: #('--headless'). "be able to run test without X session"
+	image addLaunchConfiguration: (image defaultLaunchConfiguration 
+		vmArguments: #('--headless');
+		imageArguments: #('--no-quit');
+		yourself). "be able to run test without X session"
 
 	self traceCr: 'will run the process'.
 	process := command execute.
@@ -53,7 +56,7 @@ PhLLaunchImageCommandTest >> testCanLaunchImage [
 	self traceCr: 'stop waiting ' , DateAndTime now asString.
 	self traceCr: 'process running? ', process isRunning asString.
 	self traceCr: 'process isSuccess? ', process isSuccess asString.
-	self traceCr: 'process stederr: ', process stderrString.
+	"self traceCr: 'process stederr: ', process stderrString."
 	self assert: process isRunning.
 	self traceCr: 'end of test'.
 ]
